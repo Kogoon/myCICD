@@ -1,0 +1,11 @@
+
+- hosts: ansible-server
+
+  tasks:
+  - name: create docker image
+    command: docker build -t kogoon/mytomcat:0.1 .
+    args:
+      chdir: /opt/docker
+
+  - name: push docker image
+    command: docker push kogoon/mytomcat:0.1

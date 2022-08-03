@@ -1,0 +1,9 @@
+- hosts: docker-host
+
+  tasks:
+  - name: remove container
+    command: docker rm -f docker-container
+  - name: remove image
+    command: docker rmi -f kogoon/mytomcat:0.1
+  - name: create container
+    command: docker run -d -p 8080:8080 --name docker-container kogoon/mytomcat:0.1
